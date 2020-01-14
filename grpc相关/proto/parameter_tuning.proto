@@ -1,0 +1,70 @@
+syntax = "proto3";
+option java_package = "sun.portfolio.hptuning";
+package hptuning;
+
+service hptuning{
+    rpc gridsearch (tasks_difine) returns (hptuning_tasks);
+    rpc stopServer (flag) returns (flag);
+}
+
+message para_define{
+    string name =1;
+    double start=2;
+    int64 dt = 3;
+    double step = 4;
+}
+
+
+message flag{
+    bool flag=1;
+}
+
+message parameter{
+    string name=1;
+    string type=2;
+    string value=3;
+}
+
+message metric{
+    string name=1;
+    double value=2;
+}
+
+message parameter_result{
+     repeated parameter parameter_setting =1;
+     repeated metric parameter_metrics = 2;
+}
+
+message parameter_results{
+    repeated parameter_result records=1;
+}
+
+message hptuning_tasks{
+    repeated parameter_result tasks=1;
+    repeated parameter_result optimal=2;
+}
+
+message balanced_dates{
+    int64 param=1;
+    string method=2;
+}
+
+message config{
+    string benchmark=1;
+    int64 expected_return_days=2;
+    repeated string stocks=3;
+    double initial_capital=4;
+    int64 start=5;
+    string stragety=6;
+    balanced_dates balancedDays=7;
+    int64 end=8;
+    bool cleaned_weights=9;
+}
+
+message tasks_difine{
+    repeated para_define params=1;
+    config task_config = 2;
+
+}
+
+//python -m grpc_tools.protoc -I ../../proto --python_out=. --grpc_python_out=. ../../proto/parameter_tuning.proto
