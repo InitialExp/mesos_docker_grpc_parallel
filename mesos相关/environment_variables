@@ -1,0 +1,7 @@
+{
+  "PATH": "/root/mpich/install/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/grpc/grpc/bins/opt:/root/grpc/grpc/bins/opt/protobuf:/root/bin",
+  "LD_LIBRARY_PATH": "/root/grpc/grpc/libs/opt",
+  "CPATH":"/root/grpc/grpc/include:/root/grpc/grpc/third_party/protobuf/src",
+  "LIBRARY_PATH":"/root/grpc/grpc/libs/opt:/root/grpc/grpc/libs/opt/protobuf",
+  "PKG_CONFIG_PATH":"/root/grpc/grpc/libs/opt/pkgconfig:/root/grpc/grpc/third_party/protobuf"
+}
